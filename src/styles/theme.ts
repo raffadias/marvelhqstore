@@ -24,5 +24,5 @@ export const Theme = {
     gridBreakDesktop: "1082px"
   },
   borderRadius: "10px",
-  backgroundColor: "#666666"
+  backgroundColor: "#F2F2F2"
 };

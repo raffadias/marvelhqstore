@@ -7,9 +7,10 @@ export function Routes() {
   return (
     <BrowserRouter>
       <ReactRoutes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/comic/:id" element={<ComicBook />}/>
-        <Route path="/cart" element={<Cart />}/>
+        <Route path="/" element={<Home />}>
+          <Route path="/comic/:id" element={<ComicBook />}/>
+          <Route path="/cart" element={<Cart />}/>
+        </Route>
       </ReactRoutes>
     </BrowserRouter>
   );

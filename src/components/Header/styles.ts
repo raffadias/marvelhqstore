@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  width: 90%;
+  width: 95%;
   margin: 16px auto;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.colors.greyPrimary};
