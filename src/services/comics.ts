@@ -1,5 +1,5 @@
 import api from "./api";
 
-export async function getComicBooks() {
-  return await api.get("/comics");
+export function getComicBooks() {
+  return api.get("/comics");
 }

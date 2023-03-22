@@ -9,12 +9,12 @@ const ts = Number(new Date());
 const hash = md5(ts + privateKey + publicKey);
 
 const api = axios.create({
-    baseURL: baseURL,
-    params: {
-        ts,
-        apikey: publicKey,
-        hash
-    }
+  baseURL: baseURL,
+  params: {
+    ts,
+    apikey: publicKey,
+    hash
+  }
 });
 
 export default api;
