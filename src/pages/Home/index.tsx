@@ -39,7 +39,7 @@ export function Home() {
           <ComicsContainer>
             {comics.map((comic) => {
               return (
-                <HqCard key={comic.id} digitalId={comic.digitalId} id={comic.id} title={comic.title} description={comic.description} thumbnail={comic.thumbnail} price={comic.price} />
+                <HqCard key={comic.id} digitalId={comic.digitalId} id={comic.id} title={comic.title} description={comic.description} thumbnail={comic.thumbnail} prices={comic.prices} />
               );})}
           </ComicsContainer>
         </ComicsBackground>
