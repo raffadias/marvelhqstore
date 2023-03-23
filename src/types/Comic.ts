@@ -1,8 +1,8 @@
-export interface Price {
+export type Price = {
   type: string;
   price: number;
 }
-export interface Comic {
+export type Comic = {
   id: number;
   digitalId: number;
   title: string;

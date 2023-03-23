@@ -1,4 +1,4 @@
-export interface DefaultThemeProps {
+export type DefaultThemeProps = {
   spacing: {
 		small: string;
 		medium: string;

@@ -10,6 +10,17 @@ interface SpinnerProps {
   size?: number;
 }
 
+export const LoadingContainer = styled.div`
+  display: flex;
+  width: 95%;
+  height: 90%;
+  background-color: ${({theme}) => theme.colors.greySecondary};
+  border-radius: ${({theme}) => theme.borderRadius};
+  margin: 20px auto;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Spinner = styled.div<SpinnerProps>`
 width: ${({size}) => size || 56}px;
 height: ${({size}) => size || 56}px;

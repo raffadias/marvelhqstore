@@ -1,10 +1,12 @@
-import { Spinner } from "./styles";
+import { LoadingContainer, Spinner } from "./styles";
 interface LoadingProps {
   size?: number;
 }
 
 export function Loading({size}: LoadingProps) {
   return (
-    <Spinner size={size} />
+    <LoadingContainer>
+      <Spinner size={size} />
+    </LoadingContainer>
   );
 }

@@ -1,5 +1,5 @@
-import { Comic } from "../../types/Comic";
-import { formatCurrency } from "../../utils/formatCurrency";
+import { Comic } from "@/types/Comic";
+import { formatCurrency } from "@/utils/formatCurrency";
 import { Card, Title, InnerContainer, FlipCard, CardFront, CardBack, ComicImage, InfoContainer, Price } from "./styles";
 
 export function HqCard({id, title, digitalId, description, thumbnail, prices}: Comic) {
@@ -11,13 +11,13 @@ export function HqCard({id, title, digitalId, description, thumbnail, prices}: C
         <InnerContainer>
           <CardFront>
             <ComicImage src={img} alt="Imagem da HQ" />
-            <Title>{title}</Title>
+            <Price>
+              {formatCurrency(price.price > 0 ? (price.price) : (2.99))}
+            </Price>
           </CardFront>
           <CardBack>
             <InfoContainer>
-              <Price>
-                {formatCurrency(price.price > 0 ? (price.price) : (2.99))}
-              </Price>
+              <Title>{title}</Title>
             </InfoContainer>
           </CardBack>
         </InnerContainer>

@@ -1,5 +1,5 @@
 import { LogoContainer, Header as HeaderComponent } from "./styles";
-import marvelLogo from "../../assets/marvelLogo.svg";
+import marvelLogo from "@/assets/marvelLogo.svg";
 
 export function Header() {
   return (

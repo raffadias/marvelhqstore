@@ -70,6 +70,10 @@ export const Title = styled.p`
 `;
 
 export const Price = styled.span`
+  position: absolute;
+  width: 100%;
   font-size: 24px;
   color: ${({theme}) => theme.colors.iceWhite};
+  background-image: linear-gradient(to top, #000, transparent);
+  border-radius: ${({theme}) => theme.borderRadius};
 `;

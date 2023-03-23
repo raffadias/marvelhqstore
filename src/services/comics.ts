@@ -1,5 +1,5 @@
 import api from "./api";
 
-export function getComicBooks() {
-  return api.get("/comics");
+export function getComicBooks(offset: number) {
+  return api.get(`/comics?offset=${offset}&orderBy=focDate`);
 }
