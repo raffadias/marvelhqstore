@@ -54,6 +54,7 @@ export const ComicsContainer = styled.div`
 
 export const Footer = styled.footer`
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -62,4 +63,11 @@ export const Footer = styled.footer`
   > h2 {
     color: ${({theme}) => theme.colors.iceWhite};
   }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 `;

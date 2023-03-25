@@ -4,18 +4,21 @@ import { HqCard } from "@/components/HqCard";
 import { Loading } from "@/components/Loading";
 import { getComicBooks } from "@/services/comics";
 import { Comic } from "@/types/Comic";
-import { ComicsBackground, ComicsContainer, Container, Footer, Title } from "./styles";
+import { ButtonsContainer, ComicsBackground, ComicsContainer, Container, Footer, Title } from "./styles";
+import { Button } from "@/components/Button";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 export function Home() {
   const [comics, setComics] = useState<Comic[]>([]);
   const [limit, setLimit] = useState<number>(20);
+  const [offset, setOffset] = useState<number>(20);
   const [loading, setLoading] = useState<boolean>(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  async function getComics(limit: number) {
+  async function getComics(limit: number, offset: number) {
     try {
       setLoading(true);
-      const { data } = await getComicBooks(limit);
+      const { data } = await getComicBooks(limit, offset);
       setComics(data.data.results);
     } catch (error) {
       console.log("error", error);
@@ -25,36 +28,23 @@ export function Home() {
   }
 
   useEffect(() => {
-    getComics(limit);
-  },[limit]);
+    getComics(limit, offset);
+  },[limit, offset]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollElement = scrollRef.current;
-      if (!scrollElement) return;
+  function resetLimit() {
+    setLimit(20);
+  }
 
-      const scrollPosition = scrollElement.scrollTop + scrollElement.clientHeight;
-      const bodyHeight = scrollElement.scrollHeight;
+  function increaseLimit() {
+    setLimit(prevState => prevState + 10);
+  }
 
-      if (scrollPosition >= bodyHeight && comics.length < 99) {
-        nextPage();
-      }
-    };
-
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    scrollElement.addEventListener("scroll", handleScroll);
-
-    return () => scrollElement.removeEventListener("scroll", handleScroll);
-  },[comics]);
-
-  // function prevPage() {
-  //   setLimit(prevState => prevState === 0 ? prevState : prevState - 20);
-  // }
+  function prevPage() {
+    setOffset(prevState => prevState === 0 ? prevState : prevState - limit);
+  }
 
   function nextPage() {
-    setLimit(prevState => prevState + 20);
+    setOffset(prevState => prevState + limit);
   }
 
   return (
@@ -79,7 +69,28 @@ export function Home() {
           <Loading />
         )}
         <Footer>
-          <h2>End of comics list.</h2>
+          {comics.length < 100 && (
+            <ButtonsContainer>
+              <Button clickFunc={() => increaseLimit()}>
+                Load more
+              </Button>
+              {limit > 20 && (
+                <Button clickFunc={() => resetLimit()}>
+                  Reset limit
+                </Button>
+              )}
+            </ButtonsContainer>
+          )}
+          <ButtonsContainer>
+            <Button clickFunc={() => prevPage()}>
+              <MdArrowBack />
+              Prev
+            </Button>
+            <Button clickFunc={() => nextPage()}>
+              Next
+              <MdArrowForward />
+            </Button>
+          </ButtonsContainer>
         </Footer>
       </ComicsBackground>
     </Container>
