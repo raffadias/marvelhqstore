@@ -12,10 +12,7 @@ interface SpinnerProps {
 
 export const LoadingContainer = styled.div`
   display: flex;
-  width: 95%;
-  height: 90%;
-  background-color: ${({theme}) => theme.colors.greySecondary};
-  border-radius: ${({theme}) => theme.borderRadius};
+  width: 100%;
   margin: 20px auto;
   align-items: center;
   justify-content: center;

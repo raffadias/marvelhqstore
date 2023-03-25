@@ -40,7 +40,7 @@ export const CardBack = styled.div`
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: ${({theme}) => theme.colors.secondaryDark};
+  background-color: ${({theme}) => theme.colors.greySecondary};
   border-radius: ${({theme}) => theme.borderRadius};
   transform: rotateY(180deg);
 `;
@@ -51,10 +51,18 @@ export const FlipCard = styled.div`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  height: 70%;
+`;
+
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 30%;
+  align-self: flex-end;
   justify-content: end;
   background-image: linear-gradient(to top, #000, transparent);
   border-radius: ${({theme}) => theme.borderRadius};

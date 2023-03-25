@@ -4,7 +4,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   padding: 16px 0;
-  background-color: ${({ theme }) => theme.colors.greyPrimary};
+  background-color: ${({ theme }) => theme.colors.comicContainerBackground};
 `;
 
 export const LogoContainer = styled.div`

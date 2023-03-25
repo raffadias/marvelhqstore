@@ -8,6 +8,7 @@ export const Theme = {
     primary: "#e23636",
     secondaryDark: "#9d1516",
     secondaryLight: "#e96262",
+    comicContainerBackground: "#212225",
     greyPrimary: "#333333",
     greySecondary: "#666666",
     greyMid: "#999999",

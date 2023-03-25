@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Header } from "@/components/Header";
 import { HqCard } from "@/components/HqCard";
 import { Loading } from "@/components/Loading";
@@ -8,14 +8,14 @@ import { ComicsBackground, ComicsContainer, Container, Footer, Title } from "./s
 
 export function Home() {
   const [comics, setComics] = useState<Comic[]>([]);
-  const [offset, setOffset] = useState<number>(0);
+  const [limit, setLimit] = useState<number>(20);
   const [loading, setLoading] = useState<boolean>(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-
-  async function getComics(offset: number) {
+  async function getComics(limit: number) {
     try {
       setLoading(true);
-      const { data } = await getComicBooks(offset);
+      const { data } = await getComicBooks(limit);
       setComics(data.data.results);
     } catch (error) {
       console.log("error", error);
@@ -25,44 +25,63 @@ export function Home() {
   }
 
   useEffect(() => {
-    getComics(offset);
-  },[offset]);
+    getComics(limit);
+  },[limit]);
 
-  function prevPage() {
-    setOffset(prevState => prevState === 0 ? prevState : prevState - 20);
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollElement = scrollRef.current;
+      if (!scrollElement) return;
+
+      const scrollPosition = scrollElement.scrollTop + scrollElement.clientHeight;
+      const bodyHeight = scrollElement.scrollHeight;
+
+      if (scrollPosition >= bodyHeight && comics.length < 99) {
+        nextPage();
+      }
+    };
+
+    const scrollElement = scrollRef.current;
+    if (!scrollElement) return;
+
+    scrollElement.addEventListener("scroll", handleScroll);
+
+    return () => scrollElement.removeEventListener("scroll", handleScroll);
+  },[comics]);
+
+  // function prevPage() {
+  //   setLimit(prevState => prevState === 0 ? prevState : prevState - 20);
+  // }
 
   function nextPage() {
-    setOffset(prevState => prevState + 20);
+    setLimit(prevState => prevState + 20);
   }
 
   return (
     <Container>
       <Header />
-      {loading ? (
-        <Loading />
-      ) : (
-        <ComicsBackground>
-          <Title>Comics</Title>
-          <ComicsContainer>
-            {comics.map((comic) => (
-              <HqCard
-                key={comic.id}
-                digitalId={comic.digitalId}
-                id={comic.id}
-                title={comic.title}
-                description={comic.description}
-                thumbnail={comic.thumbnail}
-                prices={comic.prices}
-              />
-            ))}
-          </ComicsContainer>
-          <Footer>
-            <button onClick={() => prevPage()}>PREV</button>
-            <button onClick={() => nextPage()}>NEXT</button>
-          </Footer>
-        </ComicsBackground>
-      )}
+      <ComicsBackground ref={scrollRef}>
+        <Title>Comics</Title>
+        <ComicsContainer>
+          {comics.map((comic) => (
+            <HqCard
+              key={comic.id}
+              digitalId={comic.digitalId}
+              id={comic.id}
+              title={comic.title}
+              description={comic.description}
+              thumbnail={comic.thumbnail}
+              prices={comic.prices}
+            />
+          ))}
+        </ComicsContainer>
+        {loading && (
+          <Loading />
+        )}
+        <Footer>
+          <h2>End of comics list.</h2>
+        </Footer>
+      </ComicsBackground>
     </Container>
   );
 }

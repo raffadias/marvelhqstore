@@ -8,6 +8,7 @@ export type DefaultThemeProps = {
 		primary: string;
 		secondaryDark: string;
 		secondaryLight: string;
+    comicContainerBackground: string;
 		greyPrimary: string;
 		greySecondary: string;
 		greyMid: string;
