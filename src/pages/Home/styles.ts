@@ -15,7 +15,7 @@ export const Title = styled.h1`
 export const ComicsBackground = styled.div`
   margin: 20px auto;
   width: 100%;
-  height: 650px;
+  height: 680px;
   background-color: ${({theme}) => theme.colors.comicContainerBackground};
   gap: 8px;
   padding: 16px;
