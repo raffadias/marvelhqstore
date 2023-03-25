@@ -1,11 +1,15 @@
 import styled from "styled-components";
-import { MdShoppingCart } from "react-icons/md";
+import { MdArrowBack, MdShoppingCart } from "react-icons/md";
 
 export const Header = styled.header`
   display: flex;
-  align-items: center;
+  align-items: baseline;
   padding: 16px 0;
   background-color: ${({ theme }) => theme.colors.comicContainerBackground};
+`;
+
+export const ArrowBackContainer = styled.div`
+  width: 46%;
 `;
 
 export const LogoContainer = styled.div`
@@ -17,6 +21,7 @@ export const LogoContainer = styled.div`
   margin-left: auto;
   > img {
     height: 48px;
+    cursor: pointer;
   }
 `;
 
@@ -37,6 +42,18 @@ export const CartItems = styled.span`
 export const ComicsCart = styled(MdShoppingCart)`
   color: ${({theme}) => theme.colors.iceWhite};
   margin-right: 16px;
+  cursor: pointer;
+
+  &:hover {
+    transition: ease-in-out 200ms;
+    color: ${({theme}) => theme.colors.primary};
+  }
+`;
+
+export const ArrowBack = styled(MdArrowBack)`
+  color: ${({theme}) => theme.colors.iceWhite};
+  margin-left: 16px;
+  padding-top: 10px;
   cursor: pointer;
 
   &:hover {

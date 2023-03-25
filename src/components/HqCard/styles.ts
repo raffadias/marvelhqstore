@@ -34,13 +34,20 @@ export const CardFront = styled.div`
   border-radius: ${({theme}) => theme.borderRadius};
 `;
 
-export const CardBack = styled.div`
+type CardBackProps = {
+  bgImg: string;
+}
+
+export const CardBack = styled.div<CardBackProps>`
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: ${({theme}) => theme.colors.greySecondary};
+  background-image: url(${({bgImg}) => bgImg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: ${({theme}) => theme.borderRadius};
   transform: rotateY(180deg);
 `;
@@ -61,7 +68,7 @@ export const ButtonContainer = styled.div`
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 30%;
+  height: 100%;
   align-self: flex-end;
   justify-content: end;
   background-image: linear-gradient(to top, ${({theme}) => theme.colors.black}, transparent);

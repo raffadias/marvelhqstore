@@ -7,6 +7,7 @@ import { Comic } from "@/types/Comic";
 import { ButtonsContainer, ComicsBackground, ComicsContainer, Container, Footer, Title } from "./styles";
 import { Button } from "@/components/Button";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { toast } from "react-toastify";
 
 export function Home() {
   const [comics, setComics] = useState<Comic[]>([]);
@@ -21,7 +22,7 @@ export function Home() {
       const { data } = await getComicBooks(limit, offset);
       setComics(data.data.results);
     } catch (error) {
-      console.log("error", error);
+      toast.error("Internal server error");
     } finally {
       setLoading(false);
     }
@@ -55,6 +56,7 @@ export function Home() {
         <ComicsContainer>
           {comics.map((comic) => (
             <HqCard
+              textObjects={comic.textObjects}
               key={comic.id}
               digitalId={comic.digitalId}
               id={comic.id}
@@ -68,30 +70,32 @@ export function Home() {
         {loading && (
           <Loading />
         )}
-        <Footer>
-          {comics.length < 100 && (
-            <ButtonsContainer>
-              <Button clickFunc={() => increaseLimit()}>
+        {!loading && (
+          <Footer>
+            {comics.length < 100 && (
+              <ButtonsContainer>
+                <Button clickFunc={() => increaseLimit()}>
                 Load more
-              </Button>
-              {limit > 20 && (
-                <Button clickFunc={() => resetLimit()}>
-                  Reset limit
                 </Button>
-              )}
-            </ButtonsContainer>
-          )}
-          <ButtonsContainer>
-            <Button clickFunc={() => prevPage()}>
-              <MdArrowBack />
+                {limit > 20 && (
+                  <Button clickFunc={() => resetLimit()}>
+                  Reset limit
+                  </Button>
+                )}
+              </ButtonsContainer>
+            )}
+            <ButtonsContainer>
+              <Button clickFunc={() => prevPage()}>
+                <MdArrowBack />
               Prev
-            </Button>
-            <Button clickFunc={() => nextPage()}>
+              </Button>
+              <Button clickFunc={() => nextPage()}>
               Next
-              <MdArrowForward />
-            </Button>
-          </ButtonsContainer>
-        </Footer>
+                <MdArrowForward />
+              </Button>
+            </ButtonsContainer>
+          </Footer>
+        )}
       </ComicsBackground>
     </Container>
   );
