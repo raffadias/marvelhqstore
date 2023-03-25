@@ -15,12 +15,11 @@ export const Title = styled.h1`
 export const ComicsBackground = styled.div`
   margin: 20px auto;
   width: 100%;
-  height: 680px;
+  height: 90%;
   background-color: ${({theme}) => theme.colors.comicContainerBackground};
   gap: 8px;
   padding: 16px;
   overflow-y: scroll;
-  border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 

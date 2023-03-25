@@ -8,13 +8,15 @@ export const Theme = {
     primary: "#e23636",
     secondaryDark: "#9d1516",
     secondaryLight: "#e96262",
+    rareComicBadge: "#d4af37",
     comicContainerBackground: "#212225",
     greyPrimary: "#333333",
     greySecondary: "#666666",
     greyMid: "#999999",
     greyLight: "#CCCCCC",
     iceWhite: "#F2F2F2",
-    white: "#FFFFFF"
+    white: "#FFFFFF",
+    black: "#000"
   },
   fontFamily: "Bebas Neue, sans-serif",
   breakPoint: {

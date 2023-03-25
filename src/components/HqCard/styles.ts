@@ -64,8 +64,20 @@ export const InfoContainer = styled.div`
   height: 30%;
   align-self: flex-end;
   justify-content: end;
-  background-image: linear-gradient(to top, #000, transparent);
+  background-image: linear-gradient(to top, ${({theme}) => theme.colors.black}, transparent);
   border-radius: ${({theme}) => theme.borderRadius};
+`;
+
+export const RareComicBadge = styled.span`
+  position: absolute;
+  top: 0;
+  left: 5px;
+  background-color: ${({theme}) => theme.colors.rareComicBadge};
+  color: ${({theme}) => theme.colors.black};
+  box-shadow: 1px 1px 0.5px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
 `;
 
 export const Title = styled.p`
@@ -73,7 +85,7 @@ export const Title = styled.p`
   width: 100%;
   padding: 5px;
   color: ${({theme}) => theme.colors.iceWhite};
-  background-image: linear-gradient(to top, #000, transparent);
+  background-image: linear-gradient(to top, ${({theme}) => theme.colors.black}, transparent);
   border-radius: ${({theme}) => theme.borderRadius};
 `;
 
@@ -82,6 +94,6 @@ export const Price = styled.span`
   width: 100%;
   font-size: 24px;
   color: ${({theme}) => theme.colors.iceWhite};
-  background-image: linear-gradient(to top, #000, transparent);
+  background-image: linear-gradient(to top, ${({theme}) => theme.colors.black}, transparent);
   border-radius: ${({theme}) => theme.borderRadius};
 `;

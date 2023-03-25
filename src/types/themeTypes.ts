@@ -8,6 +8,7 @@ export type DefaultThemeProps = {
 		primary: string;
 		secondaryDark: string;
 		secondaryLight: string;
+    rareComicBadge: string;
     comicContainerBackground: string;
 		greyPrimary: string;
 		greySecondary: string;
@@ -15,6 +16,7 @@ export type DefaultThemeProps = {
 		greyLight: string;
 		iceWhite: string;
 		white: string;
+    black: string;
 	},
 	fontFamily: string;
 	borderRadius: string;
