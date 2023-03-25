@@ -1,4 +1,4 @@
-import { LogoContainer, Header as HeaderComponent } from "./styles";
+import { LogoContainer, Header as HeaderComponent, ComicsCart } from "./styles";
 import marvelLogo from "@/assets/marvelLogo.svg";
 
 export function Header() {
@@ -6,6 +6,7 @@ export function Header() {
     <HeaderComponent>
       <LogoContainer>
         <img src={marvelLogo} alt="Logo marvel" />
+        <ComicsCart size={42} />
       </LogoContainer>
     </HeaderComponent>
   );
