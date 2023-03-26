@@ -53,7 +53,7 @@ export function Home() {
       <Header />
       <ComicsBackground ref={scrollRef}>
         <Title>Comics</Title>
-        <ComicsContainer>
+        <ComicsContainer id="comics-container">
           {comics.map((comic) => (
             <HqCard
               textObjects={comic.textObjects}

@@ -4,13 +4,14 @@ type InputProps = {
   label: string;
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
+  id: string;
 }
 
-export function Input({label, value, setValue}: InputProps) {
+export function Input({label, value, setValue, id}: InputProps) {
   return (
     <Container>
       <Label>{label}</Label>
-      <InputComponent value={value} onChange={(e) => setValue(e.target.value)} />
+      <InputComponent id={id} value={value} onChange={(e) => setValue(e.target.value)} />
     </Container>
   );
 }

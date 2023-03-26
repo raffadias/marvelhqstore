@@ -69,7 +69,7 @@ export function Cart() {
     } else if (value === discountRare) {
       toast.success("Discount applied on rare comics.");
     } else {
-      toast.error("Invalid coupoun");
+      toast.error("Invalid coupoun.");
     }
 
     const total = cartItems.reduce((acc, cartItem) => {
@@ -122,7 +122,7 @@ export function Cart() {
     <Container>
       <Header />
       <CartBackground>
-        <CartItemsContainer>
+        <CartItemsContainer id="cart-items">
           {cartItems.length > 0 ? (
             cartItems.map((cartItem) => {
               const isComicRare = cartItem.prices[0].price > 20;
@@ -141,7 +141,7 @@ export function Cart() {
                     <CartItemPrice>{formatCurrency(price)}</CartItemPrice>
                   </InfoContainer>
                   <ActionContainer>
-                    <IconButton clickFunc={() => removeComicFromCart(cartItem)}>
+                    <IconButton clickFunc={() => removeComicFromCart(cartItem)} id="remove-comic">
                       <MdRemoveCircle size={24} />
                     </IconButton>
                   </ActionContainer>
@@ -158,14 +158,14 @@ export function Cart() {
         <CheckoutContainer>
           <CheckoutTitle>Checkout</CheckoutTitle>
           <InputContainer>
-            <Input label="Discount coupon" value={couponText} setValue={setCouponText} />
+            <Input id="coupon-input" label="Discount coupon" value={couponText} setValue={setCouponText} />
           </InputContainer>
           <Button clickFunc={() => applyDiscount(couponText.toLowerCase())} disabled={discountCommonApplied && discountRareApplied}>
             Apply discount coupon
             <MdCheck size={24} />
           </Button>
           <TotalContainer>
-            <h2>Total ({cartItems.length} items): {formatCurrency(totalPrice)}</h2>
+            <h2 id="total">Total ({cartItems.length} items): {formatCurrency(totalPrice)}</h2>
           </TotalContainer>
           <Button clickFunc={() => checkout()}>
             Checkout

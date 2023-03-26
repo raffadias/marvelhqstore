@@ -17,7 +17,7 @@ export function Header() {
       )}
       <LogoContainer>
         <img src={marvelLogo} alt="Logo marvel" onClick={() => navigate("/")} />
-        <ComicsCart size={42} onClick={() => navigate("/cart")} />
+        <ComicsCart size={42} onClick={() => navigate("/cart")} id="cart" />
         <CartItems>{cartItems.length}</CartItems>
       </LogoContainer>
     </HeaderComponent>
