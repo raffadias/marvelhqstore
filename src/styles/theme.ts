@@ -22,9 +22,11 @@ export const Theme = {
   breakPoint: {
     gridBreakPhoneXSm: "377px",
     gridBreakPhoneSm: "434px",
+    gridBreakPhoneMd: "474px",
     gridBreakPhone: "573px",
+    gridBreakTabletMd: "643px",
     gridBreakTablet: "714px",
-    gridBreakDesktop: "1082px"
+    gridBreakDesktop: "977px"
   },
   borderRadius: "10px",
   backgroundColor: "#F2F2F2"

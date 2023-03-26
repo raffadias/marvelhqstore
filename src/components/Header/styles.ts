@@ -10,6 +10,9 @@ export const Header = styled.header`
 
 export const ArrowBackContainer = styled.div`
   width: 46%;
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhone}) {
+    width: auto;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -74,5 +77,9 @@ export const ArrowBack = styled(MdArrowBack)`
   &:hover {
     transition: ease-in-out 200ms;
     color: ${({theme}) => theme.colors.primary};
+  }
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhone}) {
+    margin-left: 6px;
   }
 `;
