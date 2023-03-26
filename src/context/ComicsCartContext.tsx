@@ -1,5 +1,6 @@
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { Comic } from "@/types/Comic";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { toast } from "react-toastify";
 
 type ComicsCartContextType = {
@@ -16,16 +17,16 @@ const ComicsCartContext = createContext<ComicsCartContextType>({
 
 function ComicsCartProvider({children} : {children: JSX.Element}) {
 
-  const [cartItems, setCartItems] = useState<Comic[]>([]);
+  const [cartItems, setCartItems] = useLocalStorage<Comic[]>("cartItems", []);
 
   function addComicToCart(comic: Comic) {
     const exists = cartItems.some((c) => c.id === comic.id);
     if (exists) {
-      toast.error("This comic is already in the cart!", {  position: "bottom-left"});
+      toast.error("This comic is already in the cart!", {position: "bottom-left"});
       return;
     }
     setCartItems(prevCartItems => [...prevCartItems, comic]);
-    toast.success("Comic added to cart!", {  position: "bottom-left"});
+    toast.success("Comic added to cart!", {position: "bottom-left"});
   }
 
 
