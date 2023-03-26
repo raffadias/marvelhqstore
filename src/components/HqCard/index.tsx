@@ -35,7 +35,7 @@ export function HqCard(comic: Comic) {
             {isRareComic && (
               <RareComicBadge>Rare</RareComicBadge>
             )}
-            <ComicImage src={img} alt="Imagem da HQ" />
+            <ComicImage src={img} alt="HQ image" />
             <Price>
               {formatCurrency(price.price > 0 ? (price.price) : (2.99))}
             </Price>

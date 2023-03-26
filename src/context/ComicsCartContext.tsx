@@ -7,12 +7,14 @@ type ComicsCartContextType = {
   cartItems: Comic[];
   setCartItems: React.Dispatch<React.SetStateAction<Comic[]>>;
   addComicToCart: (comic: Comic) => void;
+  removeComicFromCart: (comic: Comic) => void;
 }
 
 const ComicsCartContext = createContext<ComicsCartContextType>({
   cartItems: [],
   setCartItems: () => {},
-  addComicToCart: () => {}
+  addComicToCart: () => {},
+  removeComicFromCart: () => {},
 });
 
 function ComicsCartProvider({children} : {children: JSX.Element}) {
@@ -29,11 +31,17 @@ function ComicsCartProvider({children} : {children: JSX.Element}) {
     toast.success("Comic added to cart!", {position: "bottom-left"});
   }
 
+  function removeComicFromCart(comic: Comic) {
+    const newCartItems = cartItems.filter(cartItem => cartItem.id !== comic.id);
+    setCartItems(newCartItems);
+  }
+
 
   const value = {
     cartItems,
     setCartItems,
-    addComicToCart
+    addComicToCart,
+    removeComicFromCart
   };
 
   return (
