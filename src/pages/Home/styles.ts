@@ -49,6 +49,21 @@ export const ComicsContainer = styled.div`
   grid-row-gap: 50px;
   justify-items: center;
   margin-bottom: 100px;
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakTablet}) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhone}) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhoneSm}) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+  }
 `;
 
 export const Footer = styled.footer`

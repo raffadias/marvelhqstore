@@ -23,6 +23,21 @@ export const LogoContainer = styled.div`
     height: 48px;
     cursor: pointer;
   }
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakTablet}) {
+    width: 56%;
+  }
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhone}) {
+    width: 58%;
+  }
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhoneSm}) {
+    width: 62%;
+  }
+
+  @media (max-width: ${({theme}) => theme.breakPoint.gridBreakPhoneXSm}) {
+    width: 66%;
+  }
 `;
 
 export const CartItems = styled.span`

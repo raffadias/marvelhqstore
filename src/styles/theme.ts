@@ -20,10 +20,10 @@ export const Theme = {
   },
   fontFamily: "Bebas Neue, sans-serif",
   breakPoint: {
-    gridBreakPhoneXSm: "325px",
-    gridBreakPhoneSm: "375px",
-    gridBreakPhone: "563px",
-    gridBreakTablet: "768px",
+    gridBreakPhoneXSm: "377px",
+    gridBreakPhoneSm: "434px",
+    gridBreakPhone: "573px",
+    gridBreakTablet: "714px",
     gridBreakDesktop: "1082px"
   },
   borderRadius: "10px",
