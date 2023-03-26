@@ -1,7 +1,7 @@
 import axios from "axios";
 import md5 from "md5";
 
-const baseURL = import.meta.env.VITE_URL;
+const baseURL = "http://gateway.marvel.com/v1/public/";
 const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 const privateKey = import.meta.env.VITE_PRIVATE_KEY;
 const ts = Number(new Date());
