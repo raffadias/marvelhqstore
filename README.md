@@ -35,7 +35,8 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 
 # Cupons
 Raros: marvelrare
-Comuns marvelcommon
+</br>
+Comuns: marvelcommon
 
 # :email: Contato
 Se você tiver alguma dúvida ou quiser entrar em contato comigo, por favor envie um e-mail para ribeirodias.contato@gmail.com.
