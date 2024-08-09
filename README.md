@@ -10,7 +10,7 @@ Para instalar e executar o projeto, siga os seguintes passos:
 Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/marvelhqstore.git
+git clone https://github.com/raffadias/marvelhqstore.git
 ```
 
 Instale as dependências:
